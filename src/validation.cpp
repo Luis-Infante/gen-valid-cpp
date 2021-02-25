@@ -48,6 +48,49 @@ bool Validation::itsAString(const string &str) {
   return false;
 }
 
+bool Validation::itsALetterString(const string &str) {
+  int size = str.size(), i = 0;
+  if (size < str.max_size()) {
+    while (i < size) {
+      if (!((str[i] >= 'A' and str[i] <= 'Z') or (str[i] >= 'a' and str[i] <= 'z') or (str[i] == ' '))) {
+        return false;
+      }
+      i++;
+    }
+    return true;
+  }
+  return false;
+}
+
+bool Validation::itsANumberString(const string &str) {
+  int size = str.size(), i = 0;
+  if (size < str.max_size()) {
+    while (i < size) {
+      if (!((str[i] >= '0' and str[i] <= '9') or (str[i] == ' '))) {
+        return false;
+      }
+      i++;
+    }
+    return true;
+  }
+  return false;
+}
+
+bool Validation::itsALetNumString(const string &str) {
+  int size = str.size(), i = 0;
+  if (size < str.max_size()) {
+    while (i < size) {
+      if (!((str[i] >= 'A' and str[i] <= 'Z') or (str[i] >= 'a' and str[i] <= 'z')
+          or (str[i] >= '0' and str[i] <= '9') or (str[i] == ' '))) {
+        return false;
+      }
+      i++;
+    }
+    return true;
+  }
+  return false;
+}
+
 bool Validation::itsAString(const int &value, const string &type, const string &str) {
   int size = str.size(), i = 0;
   if (type == "max") {
@@ -88,5 +131,18 @@ bool Validation::itsAString(const int &min, const int &max, const string &str) {
   }
   return false;
 }
+string Validation::toUpperString(const string &str) {
+  string str_1 = str;
+  for (int i(0); i < str.length(); ++i) {
+    str_1[i] = toupper(str_1[i]);
+  }
+  return str_1;
+}
 
-
+string Validation::toLowerString(const string &str) {
+  string str_1 = str;
+  for (int i(0); i < str.length(); ++i) {
+    str_1[i] = tolower(str_1[i]);
+  }
+  return str_1;
+}

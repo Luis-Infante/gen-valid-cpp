@@ -34,7 +34,7 @@ int main() {
   char_test = 'F';
   cout << "The character: " << char_test << ", Response: " << Validation::itsACharacter(char_test) << endl;
 
-  //Validates only letter with char
+  //Validates only letters with char
   cout << "The character: " << char_test << ", Response: " << Validation::itsLetterCharacter(char_test) << endl;
   char_test = '9';
   cout << "The character: " << char_test << ", Response: " << Validation::itsLetterCharacter(char_test) << endl;
@@ -49,7 +49,7 @@ int main() {
     cout << "The character is not valid" << endl;
   }
 
-  string_test = "A";
+  string_test = "5";
   if (Validation::itsLetterCharacter(string_test)) {
     cout << "The character: " << string_test << " will be assigned correctly" << endl;
     char_test = string_test[0];
@@ -62,19 +62,36 @@ int main() {
   string_test = "Hello Word";
   cout << "The string: " << string_test << ", Response: " << Validation::itsAString(string_test) << endl;
 
+  //Validates string with only letters
+  cout << "The string: " << string_test << ", Response: " << Validation::itsALetterString(string_test) << endl;
+
+  //Validates string with only numbers
+  cout << "The string: " << string_test << ", Response: " << Validation::itsANumberString(string_test) << endl;
+
+  //Validates string with only letters, numbers or both
+  cout << "The string: " << string_test << ", Response: " << Validation::itsALetNumString(string_test) << endl;
+
   //Validate string according to needs of a min or max value.
   //itsAString(Limit Value, Identifier(min,max), String to Validate)
   int_test = 5;
+  //Min
   cout << "The string: " << string_test << ", with minimum characters: " << int_test << ", Response: "
        << Validation::itsAString(int_test, "min", string_test) << endl;
   int_test = 10;
+  //Max
   cout << "The string: " << string_test << ", with maximum characters: " << int_test << ", Response: "
        << Validation::itsAString(int_test, "max", string_test) << endl;
 
   //Validate string between limits min and max
   int min = 1, max = 10;
   cout << "The string: " << string_test << ", between: " << min << ", " << max << ", Response: "
-       << Validation::itsAString(min, max, string_test);
+       << Validation::itsAString(min, max, string_test) << endl;
+
+  //String to uppercase
+  cout << "Original: " << string_test << " - Converted: " << Validation::toUpperString(string_test) << endl;
+
+  //String to lowercase
+  cout << "Original: " << string_test << " - Converted: " << Validation::toLowerString(string_test) << endl;
 
   return 0;
 }

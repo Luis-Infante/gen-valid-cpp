@@ -22,8 +22,13 @@ public:
   static bool itsLetterCharacter(const char &);
   static bool itsLetterCharacter(const string &);
   static bool itsAString(const string &);
+  static bool itsALetterString(const string &);
+  static bool itsANumberString(const string &);
+  static bool itsALetNumString(const string &);
   static bool itsAString(const int &, const string &, const string &);
   static bool itsAString(const int &, const int &, const string &);
+  static string toUpperString(const string &);
+  static string toLowerString(const string &);
 };
 
 #endif  // VALIDNFAKEDATA_VALIDATION_H
